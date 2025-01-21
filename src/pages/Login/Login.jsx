@@ -98,6 +98,7 @@ function Login() {
   </p>
 </div>
 <div className="guest-login">
+  <p>Log in with another browser</p>
   <p className="login-toggle">
     Or log in as a guest2{' '}
     <span onClick={guestLoginHandler2}>click here</span>
