@@ -71,3 +71,39 @@
         gap: 30px;
     }
 }
+.guest-login {
+
+    text-align: center; /* Center align the content */
+    animation: fadeIn 1s ease-in-out; /* Apply fade-in animation */
+  }
+  
+  .login-toggle {
+    font-size: 1rem; /* Adjust font size */
+    color: #333; /* Text color */
+    margin: 10px 0; /* Space around the text */
+  }
+  
+  .login-toggle span {
+    color: #007BFF; /* Make the clickable text a standout color */
+    font-weight: bold; /* Emphasize the clickable text */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  }
+  
+  .login-toggle span:hover {
+    color: #0056b3; /* Darken color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+  }
+  
+  /* Add fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

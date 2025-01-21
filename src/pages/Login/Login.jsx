@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import assests from '../../assets/assets';
-import { signup,login,resetPass } from '../../config/firebase';
+import { signup, login, resetPass } from '../../config/firebase';
 
 function Login() {
   const [currState, setCurrState] = useState("Sign up");
@@ -9,14 +9,28 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // Guest credentials
+  const guestEmail = "mukul@gmail.com";
+  const guestPassword = "12345678";
+  const guestEmail2 = "shu@gmail.com";
+  const guestPassword2 = "12345678";
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
     if (currState === "Sign up") {
       // Pass username, email, and password to signup function
       signup(userName, email, password);
-    }else{
-      login(email,password);
+    } else {
+      login(email, password);
     }
+  };
+
+  const guestLoginHandler = () => {
+    login(guestEmail, guestPassword);
+  };
+
+  const guestLoginHandler2 = () => {
+    login(guestEmail2, guestPassword2);
   };
 
   return (
@@ -70,15 +84,26 @@ function Login() {
               <span onClick={() => setCurrState("Sign up")}>click here</span>
             </p>
           )}
-          {
-            currState === "Login" ? <p className='login-toggle'>
-            Forgot Password ?{' '}
-            <span onClick={() => resetPass(email)}>Reset here</span>
-          </p>
-          :
-          null
-          }
+          {currState === "Login" && (
+            <p className='login-toggle'>
+              Forgot Password?{' '}
+              <span onClick={() => resetPass(email)}>Reset here</span>
+            </p>
+          )}
         </div>
+        <div className="guest-login">
+  <p className="login-toggle">
+    Or log in as a guest{' '}
+    <span onClick={guestLoginHandler}>click here</span>
+  </p>
+</div>
+<div className="guest-login">
+  <p className="login-toggle">
+    Or log in as a guest2{' '}
+    <span onClick={guestLoginHandler2}>click here</span>
+  </p>
+</div>
+
       </form>
     </div>
   );
